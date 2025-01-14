@@ -1,0 +1,263 @@
+/* Base Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: #ffffff;
+    color: #333333;
+    scroll-behavior: smooth;
+}
+
+header {
+    padding: 0.8rem 1.5rem;
+    background: #0a0f0f;
+    border-bottom: 2px solid #f1c40f;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header nav h1 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+header nav ul li a {
+    color: #f0f0f0;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    border-bottom: 2px solid transparent;
+    padding: 0.5rem;
+    transition: all 0.3s ease-in-out;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+header nav ul li a:hover {
+    color: #f1c40f;
+    border-bottom: 2px solid #f1c40f;
+}
+
+#home {
+    background: #f8f9fa;
+    border-radius: 10px;
+    padding: 3.5rem 1.8rem;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+#home .hero h2 {
+    font-size: 3rem;
+    animation: slideIn 1.5s ease;
+}
+
+@keyframes slideIn {
+    from { transform: translateY(-50px); }
+    to { transform: translateY(0); }
+}
+
+#home p {
+    font-size: 1.1rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+section {
+    padding: 3rem;
+    margin: 1rem 0;
+}
+
+h2 {
+    border-bottom: 2px solid #333;
+    padding-bottom: 0.5rem;
+    font-size: 2rem;
+    color: #34495e;
+}
+
+ul {
+    list-style-type: disc;
+    padding-left: 1.5rem;
+}
+
+#contact a {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+footer {
+    text-align: center;
+    padding: 1.5rem;
+    background: #0a3d62;
+    color: white;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    /* Adjust the navigation menu for smaller screens */
+    header nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+    header nav ul li {
+        margin-bottom: 10px;
+    }
+
+    /* Adjust home section padding for mobile view */
+    #home {
+        padding: 4rem 1rem;
+    }
+
+    #home .hero h2 {
+        font-size: 2.2rem;
+    }
+
+    /* Adjust font size for smaller screens */
+    #skills ul, #contact p {
+        font-size: 0.9rem;
+    }
+
+    h2 {
+        font-size: 1.6rem;
+    }
+
+    /* Adjust the layout of the resume button */
+    .resume-btn {
+        font-size: 1rem;
+        padding: 0.8rem 1.3rem;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    /* Adjust hero text and paragraphs for mobile view */
+    #home .hero h2 {
+        font-size: 1.8rem;
+        text-align: center;
+    }
+    #home p {
+        font-size: 1rem;
+        text-align: center;
+    }
+
+    /* Adjust header text and navigation links */
+    header nav ul {
+        gap: 10px;
+        text-align: center;
+    }
+
+    header nav ul li {
+        font-size: 0.8rem;
+    }
+
+    /* Reduce padding for small screens */
+    section {
+        padding: 2rem 1rem;
+    }
+
+    /* Adjust the resume button for mobile view */
+    .resume-btn {
+        font-size: 1rem;
+        padding: 0.8rem 1.5rem;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* Resume Button */
+.resume-btn {
+    display: inline-block;
+    background-color: #3498db;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    text-decoration: none;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-top: 1.5rem;
+    width: auto;
+    text-align: center;
+}
+
+.resume-btn:hover {
+    background-color: #2980b9;
+    transform: scale(1.05);
+}
+
+.resume-btn:active {
+    background-color: #1d6fa5;
+    transform: scale(1);
+}
+
+.resume-btn:focus {
+    animation: clicked 0.5s ease;
+}
+
+@keyframes clicked {
+    0% { background-color: #3498db; }
+    50% { background-color: #16a085; }
+    100% { background-color: #3498db; }
+}
+
+/* Keyframes for Fade-in, Fade-out, Scale-up, and Scale-down animations */
+@keyframes fadeOut {
+    0% { opacity: 1; transform: scale(1); }
+    100% { opacity: 0; transform: scale(0.8); }
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; transform: scale(0.8); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes scaleUp {
+    0% { transform: scale(0.8); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes scaleDown {
+    0% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(0.8); opacity: 0; }
+}
+
+/* Apply the fade-out and scale-down effect */
+.fade-out {
+    animation: fadeOut 0.5s forwards;
+}
+
+/* Apply the fade-in and scale-up effect */
+.fade-in {
+    animation: fadeIn 0.5s forwards;
+}
+
+/* Scale-up effect */
+.scale-up {
+    animation: scaleUp 0.5s forwards;
+}
+
+/* Scale-down effect */
+.scale-down {
+    animation: scaleDown 0.5s forwards;
+}
