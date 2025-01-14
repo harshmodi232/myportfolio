@@ -30,5 +30,6 @@ const navList = document.getElementById('navList');
 
 menuToggle.addEventListener('click', () => {
     navList.classList.toggle('open'); // Toggle the 'open' class for showing/hiding menu
+    menuToggle.classList.toggle('open'); // Toggle the 'open' class for the hamburger icon
 });
 
