@@ -24,9 +24,11 @@ document.getElementById('menuToggle').addEventListener('click', function() {
     document.getElementById('navList').classList.toggle('active');
 });
 
-// JavaScript to toggle the hamburger menu
+// JavaScript to toggle the navigation menu
 const menuToggle = document.getElementById('menuToggle');
+const navList = document.getElementById('navList');
+
 menuToggle.addEventListener('click', () => {
-    menuToggle.classList.toggle('open'); // Toggle the 'open' class
+    navList.classList.toggle('open'); // Toggle the 'open' class for showing/hiding menu
 });
 
