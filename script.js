@@ -23,3 +23,10 @@ document.getElementById('menuToggle').addEventListener('click', function() {
     this.classList.toggle('active');
     document.getElementById('navList').classList.toggle('active');
 });
+
+// JavaScript to toggle the hamburger menu
+const menuToggle = document.getElementById('menuToggle');
+menuToggle.addEventListener('click', () => {
+    menuToggle.classList.toggle('open'); // Toggle the 'open' class
+});
+
