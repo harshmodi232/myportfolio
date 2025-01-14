@@ -261,7 +261,6 @@ footer {
 .scale-down {
     animation: scaleDown 0.5s forwards;
 }
-
 /* Menu Toggle (Hamburger) Icon Styles */
 .menu-toggle {
     display: none; /* Hide by default on larger screens */
@@ -281,10 +280,37 @@ footer {
     transition: 0.3s ease-in-out; /* Smooth transition for animations */
 }
 
-/* Display the menu toggle button on small screens */
+/* Navigation Menu Styles */
+#navList {
+    list-style: none;
+    display: flex; /* Horizontal layout by default */
+    gap: 20px;
+}
+
+/* Hide the navigation menu on small screens */
 @media screen and (max-width: 768px) {
+    #navList {
+        display: none; /* Hide menu by default */
+        position: absolute;
+        top: 60px; /* Position below the header */
+        left: 0;
+        width: 100%;
+        background-color: #fff;
+        text-align: center;
+        padding: 10px 0;
+    }
+    
+    #navList li {
+        margin: 15px 0; /* Space between menu items */
+    }
+
     .menu-toggle {
         display: flex; /* Display the hamburger menu */
+    }
+
+    /* Show the menu when the hamburger is clicked */
+    #navList.open {
+        display: block; /* Show the menu */
     }
 }
 
@@ -300,4 +326,3 @@ footer {
 .menu-toggle.open .bar:nth-child(3) {
     transform: translateY(-9px) rotate(-45deg); /* Bottom bar rotated */
 }
-
