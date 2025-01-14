@@ -28,8 +28,18 @@ document.getElementById('menuToggle').addEventListener('click', function() {
 const menuToggle = document.getElementById('menuToggle');
 const navList = document.getElementById('navList');
 
+// Toggle the menu when the hamburger icon is clicked
 menuToggle.addEventListener('click', () => {
     navList.classList.toggle('open'); // Toggle the 'open' class for showing/hiding menu
     menuToggle.classList.toggle('open'); // Toggle the 'open' class for the hamburger icon
+});
+
+// Automatically close the menu when any menu item is clicked
+const navLinks = document.querySelectorAll('#navList a');
+navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        navList.classList.remove('open'); // Remove 'open' class to hide the menu
+        menuToggle.classList.remove('open'); // Reset hamburger icon to default state
+    });
 });
 
