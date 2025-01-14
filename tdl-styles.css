@@ -11,6 +11,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    margin: 0;
 }
 
 .container {
@@ -147,7 +148,6 @@ button#report-btn:hover {
     }
 }
 
-
 /* Style for Task List */
 #task-list {
     list-style: none;
@@ -194,4 +194,67 @@ button.delete-btn {
 
 button.delete-btn:hover {
     background-color: #c0392b;
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+    .container {
+        width: 90%; /* Adjust width for smaller screens */
+        height: auto; /* Allow the container to resize based on content */
+        padding: 30px;
+    }
+
+    h1 {
+        font-size: 2.5em; /* Reduce font size */
+    }
+
+    .input-container input {
+        width: 70%; /* Adjust input width */
+        font-size: 1.2em; /* Smaller font size for input */
+    }
+
+    .input-container button {
+        font-size: 1.2em; /* Smaller button font size */
+        padding: 14px;
+    }
+
+    li {
+        font-size: 1.3em; /* Reduce font size of tasks */
+        padding: 15px; /* Reduce padding for smaller screens */
+    }
+
+    button.delete-btn, button#report-btn {
+        font-size: 1.1em; /* Adjust delete and report button font size */
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        width: 95%; /* Adjust for very small screens */
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 2em; /* Reduce font size even further */
+    }
+
+    .input-container input {
+        width: 60%; /* Adjust input width for smaller screens */
+        font-size: 1em; /* Smaller font size for input */
+    }
+
+    .input-container button {
+        font-size: 1em; /* Smaller button font size */
+        padding: 12px;
+    }
+
+    li {
+        font-size: 1.1em; /* Reduce font size of tasks even more */
+    }
+
+    button.delete-btn, button#report-btn {
+        font-size: 1em; /* Adjust delete and report button font size */
+        padding: 8px;
+    }
 }
