@@ -270,6 +270,7 @@ footer {
     width: 30px; /* Adjust width */
     height: 25px; /* Adjust height */
     cursor: pointer;
+    transition: transform 0.3s ease-in-out; /* Smooth transition for the icon */
 }
 
 .bar {
@@ -277,7 +278,7 @@ footer {
     height: 4px; /* Height of each bar */
     background-color: #333; /* Color of the bars */
     border-radius: 5px; /* Rounded corners for each bar */
-    transition: 0.3s ease-in-out; /* Smooth transition for animations */
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out; /* Smooth transition for the bars */
 }
 
 /* Navigation Menu Styles */
@@ -299,6 +300,9 @@ footer {
         color: #333; /* Text color matching existing font color */
         text-align: center;
         padding: 10px 0;
+        transform: translateY(-50px); /* Initial off-screen position */
+        opacity: 0; /* Start with hidden opacity */
+        transition: transform 0.3s ease, opacity 0.3s ease; /* Animation for sliding in */
     }
     
     #navList li {
@@ -322,18 +326,24 @@ footer {
     /* Show the menu when the hamburger is clicked */
     #navList.open {
         display: block; /* Show the menu */
+        transform: translateY(0); /* Slide in to the visible position */
+        opacity: 1; /* Fade in */
     }
-}
 
-/* Add a class to animate the menu toggle */
-.menu-toggle.open .bar:nth-child(1) {
-    transform: translateY(9px) rotate(45deg); /* Top bar rotated */
-}
+    /* Add animation to the hamburger icon when clicked */
+    .menu-toggle.open {
+        transform: rotate(90deg); /* Rotate the hamburger icon */
+    }
 
-.menu-toggle.open .bar:nth-child(2) {
-    opacity: 0; /* Middle bar hidden */
-}
+    .menu-toggle.open .bar:nth-child(1) {
+        transform: translateY(9px) rotate(45deg); /* Top bar rotated */
+    }
 
-.menu-toggle.open .bar:nth-child(3) {
-    transform: translateY(-9px) rotate(-45deg); /* Bottom bar rotated */
+    .menu-toggle.open .bar:nth-child(2) {
+        opacity: 0; /* Middle bar hidden */
+    }
+
+    .menu-toggle.open .bar:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg); /* Bottom bar rotated */
+    }
 }
