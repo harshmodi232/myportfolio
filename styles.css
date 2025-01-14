@@ -295,13 +295,24 @@ footer {
         top: 60px; /* Position below the header */
         left: 0;
         width: 100%;
-        background-color: #fff;
+        background-color: #fff; /* White background color */
+        color: #333; /* Text color matching existing font color */
         text-align: center;
         padding: 10px 0;
     }
     
     #navList li {
         margin: 15px 0; /* Space between menu items */
+    }
+
+    #navList a {
+        color: #333; /* Font color for links */
+        text-decoration: none; /* Remove underline from links */
+        font-weight: 600; /* Set font weight */
+    }
+
+    #navList a:hover {
+        color: #007BFF; /* Hover color (blue) */
     }
 
     .menu-toggle {
