@@ -261,3 +261,43 @@ footer {
 .scale-down {
     animation: scaleDown 0.5s forwards;
 }
+
+/* Menu Toggle (Hamburger) Icon Styles */
+.menu-toggle {
+    display: none; /* Hide by default on larger screens */
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 30px; /* Adjust width */
+    height: 25px; /* Adjust height */
+    cursor: pointer;
+}
+
+.bar {
+    width: 30px; /* Width of each bar */
+    height: 4px; /* Height of each bar */
+    background-color: #333; /* Color of the bars */
+    border-radius: 5px; /* Rounded corners for each bar */
+    transition: 0.3s ease-in-out; /* Smooth transition for animations */
+}
+
+/* Display the menu toggle button on small screens */
+@media screen and (max-width: 768px) {
+    .menu-toggle {
+        display: flex; /* Display the hamburger menu */
+    }
+}
+
+/* Add a class to animate the menu toggle */
+.menu-toggle.open .bar:nth-child(1) {
+    transform: translateY(9px) rotate(45deg); /* Top bar rotated */
+}
+
+.menu-toggle.open .bar:nth-child(2) {
+    opacity: 0; /* Middle bar hidden */
+}
+
+.menu-toggle.open .bar:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg); /* Bottom bar rotated */
+}
+
