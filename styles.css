@@ -289,6 +289,7 @@ footer {
 }
 
 /* Hide the navigation menu on small screens */
+/* Navigation Menu Styles for Mobile */
 @media screen and (max-width: 768px) {
     #navList {
         display: none; /* Hide menu by default */
@@ -296,7 +297,8 @@ footer {
         top: 60px; /* Position below the header */
         left: 0;
         width: 100%;
-        background-color: #fff; /* White background color */
+        background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent white background */
+        backdrop-filter: blur(8px); /* Add blur effect */
         color: #333; /* Text color matching existing font color */
         text-align: center;
         padding: 10px 0;
@@ -310,7 +312,7 @@ footer {
     }
 
     #navList a {
-        color: #333; /* Font color for links */
+        color: #000; /* Font color for links (black) */
         text-decoration: none; /* Remove underline from links */
         font-weight: 600; /* Set font weight */
     }
@@ -347,3 +349,4 @@ footer {
         transform: translateY(-9px) rotate(-45deg); /* Bottom bar rotated */
     }
 }
+
