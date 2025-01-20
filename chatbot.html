@@ -98,50 +98,47 @@
     </div>
 
     <script>
-        const chatBox = document.getElementById("chatBox");
-
         async function sendMessage() {
             const userInput = document.getElementById("userInput");
             const userMessage = userInput.value.trim();
-
-            if (userMessage === "") return;
-
+    
+            if (userMessage === "") return;  // Skip if empty message
+    
             // Add user message to chat
             addMessage(userMessage, "user");
-
-            // Send user message to FastAPI backend
+    
+            // Send user message to your backend (FastAPI) for processing
             try {
-                const response = await fetch("http://127.0.0.1:8000/chat", {
+                const response = await fetch("http://127.0.0.1:8000/chat", {  // Local backend endpoint
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json"
                     },
                     body: JSON.stringify({ message: userMessage })
                 });
-
+    
                 const data = await response.json();
-                const botResponse = data.response;
-
+                const botResponse = data.response || "Sorry, I didn't get that.";
+    
                 // Add bot response to chat
                 setTimeout(() => {
                     addMessage(botResponse, "bot");
                 }, 500);
             } catch (error) {
-                console.error("Error communicating with the server:", error);
+                console.error("Error communicating with the backend:", error);
                 addMessage("Oops! Something went wrong. Please try again later.", "bot");
             }
-
+    
             userInput.value = ""; // Clear input field
         }
 
         function addMessage(message, sender) {
+            const chatBox = document.getElementById("chatBox");
             const messageDiv = document.createElement("div");
             messageDiv.classList.add("message", sender);
             messageDiv.textContent = message;
             chatBox.appendChild(messageDiv);
-
-            // Scroll to the bottom of the chat box
-            chatBox.scrollTop = chatBox.scrollHeight;
+            chatBox.scrollTop = chatBox.scrollHeight;  // Scroll to the bottom
         }
     </script>
 </body>
