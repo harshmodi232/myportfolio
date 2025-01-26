@@ -18,7 +18,10 @@
 
         .chat-container {
             width: 90%;
-            max-width: 600px;
+            max-width: 800px;
+            height: 0;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+            position: relative;
             background: #ffffff;
             border-radius: 12px;
             overflow: hidden;
@@ -34,6 +37,9 @@
             padding: 15px;
             background: #00aaff;
             color: #ffffff;
+            position: absolute;
+            top: 0;
+            width: 100%;
         }
 
         .chat-box {
@@ -41,6 +47,7 @@
             padding: 20px;
             overflow-y: auto;
             background: #f7f9fc;
+            margin-top: 50px; /* To ensure header doesn't overlap */
         }
 
         .message {
@@ -89,6 +96,9 @@
             padding: 15px;
             border-top: 1px solid #e9ecef;
             background: #ffffff;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
         }
 
         .input-container input {
@@ -124,7 +134,8 @@
         @media (max-width: 768px) {
             .chat-container {
                 max-width: 100%;
-                height: 90%;
+                height: auto;
+                padding-top: 56.25%;
             }
 
             .chat-header {
@@ -192,7 +203,7 @@
             messageDiv.classList.add("message", sender);
 
             const avatar = document.createElement("img");
-            avatar.src = sender === "user" ? "https://via.placeholder.com/32/007bff/ffffff?text=U" : "https://via.placeholder.com/32/e9ecef/000000?text=B";
+            avatar.src = sender === "user" ? "user-avatar.jpg" : "bot-avatar.jpg"; // Use actual image URLs here
             avatar.alt = sender === "user" ? "User" : "Bot";
 
             const bubble = document.createElement("div");
