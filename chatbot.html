@@ -3,112 +3,105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Harbot</title>
+    <title>Harbot - AI Chatbot</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        * {
             margin: 0;
             padding: 0;
-            background: #f7f9fc;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f7f9fc;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
+            margin: 0;
         }
 
         .chat-container {
-            width: 90%;
-            max-width: 800px;
-            height: 0;
-            padding-top: 56.25%; /* 16:9 Aspect Ratio */
-            position: relative;
+            width: 100%;
+            max-width: 600px;
+            height: 90vh;
             background: #ffffff;
-            border-radius: 12px;
+            border-radius: 16px;
             overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             display: flex;
             flex-direction: column;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
 
         .chat-header {
+            background-color: #00aaff;
+            color: white;
             text-align: center;
-            font-size: 20px;
+            font-size: 24px;
+            padding: 16px;
             font-weight: bold;
-            padding: 15px;
-            background: #00aaff;
-            color: #ffffff;
-            position: absolute;
-            top: 0;
-            width: 100%;
         }
 
         .chat-box {
             flex: 1;
-            padding: 20px;
+            padding: 16px;
             overflow-y: auto;
-            background: #f7f9fc;
-            margin-top: 50px; /* To ensure header doesn't overlap */
+            background: #f9f9f9;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
         }
 
         .message {
             display: flex;
-            align-items: flex-start;
-            margin: 10px 0;
+            align-items: center;
+            max-width: 80%;
         }
 
         .message.user {
-            justify-content: flex-end;
+            flex-direction: row-reverse;
         }
 
         .message .bubble {
-            max-width: 70%;
-            padding: 12px;
-            border-radius: 18px;
-            font-size: 14px;
+            padding: 12px 18px;
+            border-radius: 16px;
+            font-size: 16px;
             line-height: 1.5;
+            max-width: 90%;
         }
 
         .message.user .bubble {
-            background: #007bff;
-            color: #ffffff;
-            border-bottom-right-radius: 4px;
+            background-color: #007bff;
+            color: white;
         }
 
         .message.bot .bubble {
-            background: #e9ecef;
-            color: #000;
-            border-bottom-left-radius: 4px;
+            background-color: #e9ecef;
+            color: black;
         }
 
         .message img {
-            width: 32px;
-            height: 32px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             margin: 0 10px;
         }
 
-        .message.user img {
-            order: 2;
-        }
-
         .input-container {
             display: flex;
-            padding: 15px;
-            border-top: 1px solid #e9ecef;
-            background: #ffffff;
-            position: absolute;
-            bottom: 0;
-            width: 100%;
+            padding: 14px;
+            background-color: white;
+            border-top: 1px solid #f1f1f1;
+            position: relative;
         }
 
         .input-container input {
             flex: 1;
             padding: 12px;
-            border: 1px solid #ced4da;
             border-radius: 24px;
+            border: 1px solid #ccc;
+            font-size: 16px;
             outline: none;
-            font-size: 14px;
-            margin-right: 10px;
             transition: border-color 0.3s;
         }
 
@@ -117,37 +110,38 @@
         }
 
         .input-container button {
-            padding: 10px 20px;
-            background: #007bff;
-            color: #ffffff;
+            background-color: #007bff;
+            color: white;
+            padding: 12px 20px;
             border: none;
             border-radius: 24px;
             cursor: pointer;
-            font-size: 14px;
-            transition: background 0.3s;
+            font-size: 16px;
+            margin-left: 10px;
+            transition: background-color 0.3s;
         }
 
         .input-container button:hover {
-            background: #0056b3;
+            background-color: #0056b3;
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 600px) {
             .chat-container {
-                max-width: 100%;
+                width: 100%;
                 height: auto;
-                padding-top: 56.25%;
+                max-width: none;
             }
 
             .chat-header {
-                font-size: 18px;
+                font-size: 20px;
             }
 
             .input-container input {
-                font-size: 12px;
+                font-size: 14px;
             }
 
             .input-container button {
-                font-size: 12px;
+                font-size: 14px;
             }
         }
     </style>
@@ -159,7 +153,7 @@
             <!-- Chat messages will appear here -->
         </div>
         <div class="input-container">
-            <input type="text" id="userInput" placeholder="Type a message...">
+            <input type="text" id="userInput" placeholder="Ask me anything...">
             <button onclick="sendMessage()">Send</button>
         </div>
     </div>
@@ -203,7 +197,7 @@
             messageDiv.classList.add("message", sender);
 
             const avatar = document.createElement("img");
-            avatar.src = sender === "user" ? "user-avatar.jpg" : "bot-avatar.jpg"; // Use actual image URLs here
+            avatar.src = sender === "user" ? "https://via.placeholder.com/40/007bff/ffffff?text=U" : "https://via.placeholder.com/40/e9ecef/000000?text=B";
             avatar.alt = sender === "user" ? "User" : "Bot";
 
             const bubble = document.createElement("div");
