@@ -69,7 +69,7 @@
       width: 100%;
       height: 100%;
       padding: 0 20px; /* Added horizontal padding */
-      text-align: center; /* Center text */
+      text-align: center; /* Centered content horizontally */
       background: linear-gradient(135deg, #0a0f0f, #1a1a1a);
       z-index: 9999;
       display: flex;
@@ -369,28 +369,10 @@
       text-align: center;
       white-space: nowrap;
     }
-    .resume-btn:hover {
-      background-color: #ff00ff;
-      transform: scale(1.05);
-    }
-    .resume-btn:active {
-      background-color: #d100d1;
-      transform: scale(1);
-    }
-    .resume-btn:focus {
-      animation: clicked 0.5s ease;
-    }
-    @keyframes clicked {
-      0% { background-color: #00ffff; }
-      50% { background-color: #ff00ff; }
-      100% { background-color: #00ffff; }
-    }
-    /* Responsive Adjustments */
+    /* Mobile adjustments to center the resume button */
     @media screen and (max-width: 768px) {
-      section { padding: 2rem 1rem; }
-      header nav ul { flex-direction: column; }
-      header nav ul li { margin-bottom: 10px; }
       .resume-btn {
+        display: block;
         width: 90%;
         max-width: 300px;
         margin: 1.5rem auto;
@@ -400,12 +382,13 @@
       h2 { font-size: 1.6rem; }
       p, li { font-size: 1rem; }
       .resume-btn, .view-project-btn {
-        font-size: 1rem;
-        padding: 0.8rem 1.5rem;
+        display: block;
         width: 90%;
         max-width: 300px;
         margin: 1.5rem auto;
         text-align: center;
+        font-size: 1rem;
+        padding: 0.8rem 1.5rem;
       }
     }
     /* Simple fade effects for role change */
@@ -665,14 +648,14 @@
       });
     });
     
-    /* ---------------------- Scroll-Triggered Animations ---------------------- */
+    /* ---------------------- Scroll-Triggered Animations (Only on scroll down) ---------------------- */
     const sections = document.querySelectorAll("section");
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
-        if(entry.isIntersecting) {
+        if (entry.isIntersecting) {
           entry.target.classList.add("in-view");
-        } else {
-          entry.target.classList.remove("in-view");
+          // Unobserve so that once a section comes into view, its animation remains
+          observer.unobserve(entry.target);
         }
       });
     }, { threshold: 0.2 });
