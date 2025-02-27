@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Safari Todo List</title>
+    <style>
+        :root {
+            --savanna-sun: #E67E22;
+            --acacia-green: #27AE60;
+            --desert-sand: #F4D03F;
+            --sunset-orange: #D35400;
+            --savanna-night: #2C3E50;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--savanna-night), var(--acacia-green));
+            min-height: 100vh;
+            color: white;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 0 30px rgba(0,0,0,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .container::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, 
+                transparent 45%,
+                rgba(244, 208, 63, 0.1) 50%,
+                transparent 55%);
+            animation: hologram 6s linear infinite;
+            z-index: -1;
+        }
+
+        @keyframes hologram {
+            0% { transform: rotate(0deg) translate(-50%, -50%); }
+            100% { transform: rotate(360deg) translate(-50%, -50%); }
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--desert-sand);
+            margin-bottom: 30px;
+            text-shadow: 0 0 10px rgba(244, 208, 63, 0.5);
+        }
+
+        .input-section {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        input[type="text"] {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.9);
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+            box-shadow: 0 0 15px var(--desert-sand);
+        }
+
+        button {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            background: linear-gradient(45deg, var(--savanna-sun), var(--sunset-orange));
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px var(--savanna-sun);
+        }
+
+        .todo-list {
+            list-style: none;
+        }
+
+        .todo-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .todo-item:hover {
+            transform: translateX(10px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .todo-item.completed {
+            opacity: 0.7;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .todo-item.completed span {
+            text-decoration: line-through;
+        }
+
+        .actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .actions button {
+            padding: 8px 15px;
+            font-size: 12px;
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                margin: 10px;
+                padding: 20px;
+            }
+            
+            .input-section {
+                flex-direction: column;
+            }
+            
+            button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🦁 Safari Todo List</h1>
+        
+        <div class="input-section">
+            <input type="text" id="todoInput" placeholder="Add a new task...">
+            <button onclick="addTodo()">Add Task</button>
+        </div>
+        
+        <ul class="todo-list" id="todoList">
+            <!-- Todo items will be added here -->
+        </ul>
+    </div>
+
+    <script>
+        function addTodo() {
+            const input = document.getElementById('todoInput');
+            const text = input.value.trim();
+            
+            if (text) {
+                const li = document.createElement('li');
+                li.className = 'todo-item';
+                li.innerHTML = `
+                    <span>${text}</span>
+                    <div class="actions">
+                        <button onclick="toggleComplete(this)" class="complete-btn">✓</button>
+                        <button onclick="removeTodo(this)" class="delete-btn">✕</button>
+                    </div>
+                `;
+                
+                document.getElementById('todoList').appendChild(li);
+                input.value = '';
+            }
+        }
+
+        function toggleComplete(button) {
+            const item = button.closest('.todo-item');
+            item.classList.toggle('completed');
+        }
+
+        function removeTodo(button) {
+            const item = button.closest('.todo-item');
+            item.style.transform = 'translateX(100%)';
+            item.style.opacity = '0';
+            setTimeout(() => item.remove(), 300);
+        }
+
+        // Enter key support
+        document.getElementById('todoInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') addTodo();
+        });
+    </script>
+</body>
+</html>
