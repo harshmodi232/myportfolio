@@ -1,144 +1,466 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Harsh Modi Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="script.js" defer></script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Harsh Modi Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    /* Base Styles */
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      background: #ffffff;
+      color: #333333;
+      scroll-behavior: smooth;
+    }
+    header {
+      padding: 0.8rem 1.5rem;
+      background: #0a0f0f;
+      border-bottom: 2px solid #f1c40f;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    header nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header nav h1 {
+      font-size: 2rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #ffffff;
+    }
+    header nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+    header nav ul li a {
+      color: #f0f0f0;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      border-bottom: 2px solid transparent;
+      padding: 0.5rem;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+    header nav ul li a:hover {
+      color: #f1c40f;
+      border-bottom: 2px solid #f1c40f;
+    }
+    /* Hamburger Menu */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      width: 30px;
+      height: 25px;
+      cursor: pointer;
+      transition: transform 0.3s ease-in-out;
+    }
+    .bar {
+      width: 30px;
+      height: 4px;
+      background-color: #333;
+      border-radius: 5px;
+      transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    }
+    /* Responsive Navigation for Mobile */
+    #navList {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+    @media screen and (max-width: 768px) {
+      #navList {
+        display: none;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(8px);
+        color: #333;
+        text-align: center;
+        padding: 10px 0;
+        transform: translateY(-50px);
+        opacity: 0;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+      }
+      #navList li {
+        margin: 15px 0;
+      }
+      #navList a {
+        color: #000;
+        text-decoration: none;
+        font-weight: 600;
+      }
+      #navList a:hover {
+        color: #007BFF;
+      }
+      .menu-toggle {
+        display: flex;
+      }
+      #navList.open {
+        display: block;
+        transform: translateY(0);
+        opacity: 1;
+      }
+      .menu-toggle.open {
+        transform: rotate(90deg);
+      }
+      .menu-toggle.open .bar:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+      }
+      .menu-toggle.open .bar:nth-child(2) {
+        opacity: 0;
+      }
+      .menu-toggle.open .bar:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+      }
+    }
+    /* Sections */
+    #home {
+      background: #f8f9fa;
+      border-radius: 10px;
+      padding: 3.5rem 1.8rem;
+    }
+    @keyframes slideIn {
+      from { transform: translateY(-50px); }
+      to { transform: translateY(0); }
+    }
+    #home .hero h2 {
+      font-size: 3rem;
+      animation: slideIn 1.5s ease;
+    }
+    #home p {
+      font-size: 1.1rem;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
+    section {
+      padding: 3rem;
+      margin: 1rem 0;
+    }
+    h2 {
+      border-bottom: 2px solid #333;
+      padding-bottom: 0.5rem;
+      font-size: 2rem;
+      color: #34495e;
+    }
+    ul {
+      list-style-type: disc;
+      padding-left: 1.5rem;
+    }
+    #contact a {
+      color: #3498db;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      background: #0a3d62;
+      color: white;
+    }
+    /* Resume Button */
+    .resume-btn {
+      display: inline-block;
+      background-color: #3498db;
+      color: white;
+      padding: 0.8rem 1.5rem;
+      text-decoration: none;
+      font-size: 1.1rem;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      margin-top: 1.5rem;
+      width: auto;
+      text-align: center;
+    }
+    .resume-btn:hover {
+      background-color: #2980b9;
+      transform: scale(1.05);
+    }
+    .resume-btn:active {
+      background-color: #1d6fa5;
+      transform: scale(1);
+    }
+    .resume-btn:focus {
+      animation: clicked 0.5s ease;
+    }
+    @keyframes clicked {
+      0% { background-color: #3498db; }
+      50% { background-color: #16a085; }
+      100% { background-color: #3498db; }
+    }
+    /* Animations for Role Change */
+    @keyframes fadeOut {
+      0% { opacity: 1; transform: scale(1); }
+      100% { opacity: 0; transform: scale(0.8); }
+    }
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: scale(0.8); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+    @keyframes scaleUp {
+      0% { transform: scale(0.8); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    @keyframes scaleDown {
+      0% { transform: scale(1); opacity: 1; }
+      100% { transform: scale(0.8); opacity: 0; }
+    }
+    .fade-out {
+      animation: fadeOut 0.5s forwards;
+    }
+    .fade-in {
+      animation: fadeIn 0.5s forwards;
+    }
+    .scale-up {
+      animation: scaleUp 0.5s forwards;
+    }
+    .scale-down {
+      animation: scaleDown 0.5s forwards;
+    }
+    /* Button Style for Project Links */
+    .view-project-btn {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+    .view-project-btn:hover {
+      background-color: #45a049;
+      transform: scale(1.1);
+    }
+    .view-project-btn:focus {
+      outline: none;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    }
+    /* Responsive Adjustments */
+    @media screen and (max-width: 768px) {
+      header nav ul {
+        flex-direction: column;
+        align-items: center;
+      }
+      header nav ul li {
+        margin-bottom: 10px;
+      }
+      #home {
+        padding: 4rem 1rem;
+      }
+      #home .hero h2 {
+        font-size: 2.2rem;
+      }
+      #skills ul, #contact p {
+        font-size: 0.9rem;
+      }
+      h2 {
+        font-size: 1.6rem;
+      }
+      .resume-btn {
+        font-size: 1rem;
+        padding: 0.8rem 1.3rem;
+        width: 100%;
+        text-align: center;
+      }
+    }
+    @media screen and (max-width: 480px) {
+      #home .hero h2 {
+        font-size: 1.8rem;
+        text-align: center;
+      }
+      #home p {
+        font-size: 1rem;
+        text-align: center;
+      }
+      header nav ul {
+        gap: 10px;
+        text-align: center;
+      }
+      header nav ul li {
+        font-size: 0.8rem;
+      }
+      section {
+        padding: 2rem 1rem;
+      }
+      .resume-btn {
+        font-size: 1rem;
+        padding: 0.8rem 1.5rem;
+        width: 100%;
+        text-align: center;
+      }
+    }
+  </style>
 </head>
 <body>
-    <header>
+  <!-- Header & Navigation -->
+  <header>
     <nav>
-        <h1>HARSH MODI</h1>
-        <div class="menu-toggle" id="menuToggle">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-        </div>
-        <ul id="navList">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#education">Education</a></li> <!-- Added Education link -->
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-            <li><a href="chatbot.html">More</a></li>
-        </ul>
+      <h1>HARSH MODI</h1>
+      <div class="menu-toggle" id="menuToggle">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+      <ul id="navList">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="chatbot.html">More</a></li>
+      </ul>
     </nav>
-</header>
-
-      
-    
-    <!-- Home Section -->
-    <section id="home">
-        <div class="hero">
-            <h2>
-                <span class="title-animation">I am a <span id="role">Full Stack Developer</span></span>
-            </h2>
-            <p>Driven and hardworking individual with a strong foundation in:</p>
-            <ul class="highlight-skills">
-                <li>Advanced problem-solving skills using Data Structures and Algorithms (DSA)</li>
-                <li>Proficient in modern JavaScript frameworks like React.js, Node.js, and Express.js</li>
-                <li>Skilled in database management and optimization with MySQL and MongoDB</li>
-                <li>Collaborative development using Git and GitHub for version control and team projects</li>
-                <li>Passionate about continuous learning and applying best practices in software development</li>
-            </ul>
-        </div>
-    </section>
-
-    <!-- About Me Section -->
-    <section id="about">
-        <h2>About Me</h2>
-        <p>Hi, I’m Harsh Modi, a dedicated software engineer specializing in full-stack web development and data analysis. My technical skill set includes modern frameworks like React.js and Node.js, robust database management with MySQL and MongoDB, and a strong foundation in Data Structures and Algorithms (DSA). Passionate about delivering efficient solutions, I’m constantly learning and evolving my technical expertise.</p>
-        
-        <!-- Resume Download Button -->
-        <a href="Harsh Modi Updated.pdf" download id="resume-btn" class="resume-btn">
-            Download Resume
-        </a>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills">
-        <h2>Skills</h2>
-        <ul>
-            <li><strong>Programming Languages:</strong> Java, C++, JavaScript</li>
-            <li><strong>Web Technologies:</strong> HTML, CSS, JavaScript, React.js, Node.js, Express.js, Bootstrap</li>
-            <li><strong>Data Tools:</strong> SQL, Excel, Power BI</li>
-            <li><strong>Version Control:</strong> Git, GitHub</li>
-            <li><strong>Database Management:</strong> MySQL, MongoDB</li>
-            <li><strong>Cloud Platforms:</strong> AWS, Azure</li>
-        </ul>
-    </section>
-
-    <!-- Education Section -->
-    <section id="education">
-        <h2>Education</h2>
-        <div class="education-item">
-            <h3>Institute of Technology and Management, Gwalior, India</h3>
-            <p><strong>2021 - 2025</strong></p>
-            <p>Bachelor of Technology (IT) - 7.1 CGPA</p>
-        </div>
-        
-        <!-- Certificates Section -->
+  </header>
+  
+  <!-- Home Section -->
+  <section id="home">
+    <div class="hero">
+      <h2>
+        <span class="title-animation">I am a <span id="role">Full Stack Developer</span></span>
+      </h2>
+      <p>Driven and hardworking individual with a strong foundation in:</p>
+      <ul class="highlight-skills">
+        <li>Advanced problem-solving skills using Data Structures and Algorithms (DSA)</li>
+        <li>Proficient in modern JavaScript frameworks like React.js, Node.js, and Express.js</li>
+        <li>Skilled in database management and optimization with MySQL and MongoDB</li>
+        <li>Collaborative development using Git and GitHub for version control and team projects</li>
+        <li>Passionate about continuous learning and applying best practices in software development</li>
+      </ul>
+    </div>
+  </section>
+  
+  <!-- About Me Section -->
+  <section id="about">
+    <h2>About Me</h2>
+    <p>Hi, I’m Harsh Modi, a dedicated software engineer specializing in full-stack web development and data analysis. My technical skill set includes modern frameworks like React.js and Node.js, robust database management with MySQL and MongoDB, and a strong foundation in Data Structures and Algorithms (DSA). Passionate about delivering efficient solutions, I’m constantly learning and evolving my technical expertise.</p>
+    <!-- Resume Download Button -->
+    <a href="Harsh Modi Updated.pdf" download id="resume-btn" class="resume-btn">Download Resume</a>
+  </section>
+  
+  <!-- Skills Section -->
+  <section id="skills">
+    <h2>Skills</h2>
+    <ul>
+      <li><strong>Programming Languages:</strong> Java, C++, JavaScript</li>
+      <li><strong>Web Technologies:</strong> HTML, CSS, JavaScript, React.js, Node.js, Express.js, Bootstrap</li>
+      <li><strong>Data Tools:</strong> SQL, Excel, Power BI</li>
+      <li><strong>Version Control:</strong> Git, GitHub</li>
+      <li><strong>Database Management:</strong> MySQL, MongoDB</li>
+      <li><strong>Cloud Platforms:</strong> AWS, Azure</li>
+    </ul>
+  </section>
+  
+  <!-- Education Section -->
+  <section id="education">
+    <h2>Education</h2>
+    <div class="education-item">
+      <h3>Institute of Technology and Management, Gwalior, India</h3>
+      <p><strong>2021 - 2025</strong></p>
+      <p>Bachelor of Technology (IT) - 7.1 CGPA</p>
+    </div>
+    <!-- Certificates Section -->
     <h3>Certifications</h3>
     <ul>
-        <li>AWS Academy Cloud Foundations</li>
-        <li>Salesforce Certified (Administrator)</li>
-        <li>Alteryx Designer Core</li>
-        <li>Alteryx Designer Core Micro-Credential</li>
-        <li>Alteryx Foundational Micro-Credential</li>
+      <li>AWS Academy Cloud Foundations</li>
+      <li>Salesforce Certified (Administrator)</li>
+      <li>Alteryx Designer Core</li>
+      <li>Alteryx Designer Core Micro-Credential</li>
+      <li>Alteryx Foundational Micro-Credential</li>
     </ul>
-    </section>
-
-
-<!-- Projects Section -->
-
-<section id="projects">
+  </section>
+  
+  <!-- Projects Section -->
+  <section id="projects">
     <h2>Projects</h2>
+    <div class="project-item">
+      <h3>To-Do List Project</h3>
+      <p>Developed a dynamic and user-friendly to-do list web application that enables users to efficiently manage their tasks by adding, editing, and deleting entries. Utilized HTML, CSS, and JavaScript to build a responsive and interactive interface, providing a seamless user experience across both desktop and mobile platforms.</p>
+      <p><strong>Frontend:</strong> HTML, CSS, JavaScript.</p>
+      <a href="todo-list.html" target="_blank" class="project-link">
+        <button class="view-project-btn">View Project</button>
+      </a>
+    </div>
+    <div class="project-item">
+      <h3>CRUD App</h3>
+      <p>Built a CRUD (Create, Read, Update, Delete) web application using React.js and Tailwind CSS. This application allows users to perform essential data operations in an intuitive and efficient manner, with a modern UI designed for a seamless experience. Hosted on Vercel for easy accessibility.</p>
+      <p><strong>Technologies Used:</strong> React.js, Tailwind CSS.</p>
+      <a href="https://crud-app-beryl-zeta.vercel.app/" target="_blank" class="project-link">
+        <button class="view-project-btn">View Project</button>
+      </a>
+    </div>
+    <div class="project-item">
+      <h3>Counter App</h3>
+      <p>Developed a responsive Counter App using React.js for dynamic UI updates and Tailwind CSS for efficient styling. Implemented state management with React Hooks to handle increment, decrement, and reset functionalities. Ensured a clean and modern UI with Tailwind’s utility-first approach. The project demonstrates fundamental React concepts, including component-based architecture and event handling.</p>
+      <p><strong>Technologies Used:</strong> React.js, Tailwind CSS.</p>
+      <a href="https://counter-app-psi-lilac.vercel.app/" target="_blank" class="project-link">
+        <button class="view-project-btn">View Project</button>
+      </a>
+    </div>
+  </section>
+  
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:harshmodi1686@gmail.com">harshmodi1686@gmail.com</a></p>
+    <p>Phone: <a href="tel:7400933591">7400933591</a></p>
+    <p>GitHub: <a href="https://github.com/harshmodi232" target="_blank">harshmodi232</a></p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/harsh-modi232/" target="_blank">harshmodi232</a></p>
+  </section>
+  
+  <footer>
+    <p>&copy; 2025 Harsh Modi</p>
+  </footer>
+  
+  <script>
+    // Role Animation
+    const roles = ['Full Stack Developer', 'Data Analyst', 'Software Developer'];
+    let roleIndex = 0;
+    const roleElement = document.getElementById('role');
     
-    <div class="project-item">
-        <h3>To-Do List Project</h3>
-        <p>Developed a dynamic and user-friendly to-do list web application that enables users to efficiently manage their tasks by adding, editing, and deleting entries. Utilized HTML, CSS, and JavaScript to build a responsive and interactive interface, providing a seamless user experience across both desktop and mobile platforms.</p>
-        <p><strong>Frontend:</strong> HTML, CSS, JavaScript.</p>
-        <a href="todo-list.html" target="_blank" class="project-link">
-            <button class="view-project-btn">View Project</button>
-        </a>
-    </div>
-
-    <div class="project-item">
-        <h3>CRUD App</h3>
-        <p>Built a CRUD (Create, Read, Update, Delete) web application using React.js and Tailwind CSS. This application allows users to perform essential data operations in an intuitive and efficient manner, with a modern UI designed for a seamless experience. Hosted on Vercel for easy accessibility.</p>
-        <p><strong>Technologies Used:</strong> React.js, Tailwind CSS.</p>
-        <a href="https://crud-app-beryl-zeta.vercel.app/" target="_blank" class="project-link">
-            <button class="view-project-btn">View Project</button>
-        </a>
-    </div>
-
-    <div class="project-item">
-        <h3>Counter App</h3>
-        <p>Developed a responsive Counter App using React.js for dynamic UI updates and Tailwind CSS for efficient styling. Implemented state management with React Hooks to handle increment, decrement, and reset functionalities. Ensured a clean and modern UI with Tailwind’s utility-first approach. The project demonstrates fundamental React concepts, including component-based architecture and event handling.</p>
-        <p><strong>Technologies Used:</strong> React.js, Tailwind CSS.</p>
-        <a href="https://counter-app-psi-lilac.vercel.app/" target="_blank" class="project-link">
-            <button class="view-project-btn">View Project</button>
-        </a>
-    </div>
-
-</section>
-
-
-    <!-- Contact Section -->
-    <section id="contact">
-        <h2>Contact</h2>
-        <p>Email: <a href="mailto:harshmodi1686@gmail.com">harshmodi1686@gmail.com</a></p>
-        <p>Phone: <a href="tel:7400933591">7400933591</a></p>
-        <p>GitHub: <a href="https://github.com/harshmodi232" target="_blank">harshmodi232</a></p>
-        <p>LinkedIn: <a href="https://www.linkedin.com/in/harsh-modi232/" target="_blank">harshmodi232</a></p>
-    </section>
-
-    <footer>
-        <p>&copy; 2025 Harsh Modi</p>
-    </footer>
+    function changeRole() {
+      roleElement.classList.add('fade-out', 'scale-down');
+      setTimeout(() => {
+        roleIndex = (roleIndex + 1) % roles.length;
+        roleElement.textContent = roles[roleIndex];
+        roleElement.classList.remove('fade-out', 'scale-down');
+        roleElement.classList.add('fade-in', 'scale-up');
+      }, 500);
+    }
+    setInterval(changeRole, 2000);
+    
+    // Menu Toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const navList = document.getElementById('navList');
+    
+    menuToggle.addEventListener('click', () => {
+      navList.classList.toggle('open');
+      menuToggle.classList.toggle('open');
+    });
+    
+    const navLinks = document.querySelectorAll('#navList a');
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        navList.classList.remove('open');
+        menuToggle.classList.remove('open');
+      });
+    });
+  </script>
 </body>
 </html>
