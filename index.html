@@ -4,8 +4,46 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Harsh Modi Portfolio</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Harsh Modi Portfolio - Full Stack Developer, Data Analyst, and Software Developer. Showcasing projects, skills, and experience.">
+  <meta name="keywords" content="Harsh Modi, Portfolio, Full Stack Developer, Data Analyst, Software Developer, web development, projects, skills">
+  <meta name="author" content="Harsh Modi">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://harshmodi.in/">
+  
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Harsh Modi Portfolio">
+  <meta property="og:description" content="Harsh Modi Portfolio - Full Stack Developer, Data Analyst, and Software Developer. Showcasing projects, skills, and experience.">
+  <meta property="og:url" content="https://harshmodi.in/">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://harshmodi.in/og-image.jpg"> <!-- Replace with your image URL -->
+  
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Harsh Modi Portfolio">
+  <meta name="twitter:description" content="Harsh Modi Portfolio - Full Stack Developer, Data Analyst, and Software Developer. Showcasing projects, skills, and experience.">
+  <meta name="twitter:image" content="https://harshmodi.in/twitter-image.jpg"> <!-- Replace with your image URL -->
+  
+  <!-- Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Harsh Modi",
+    "url": "https://harshmodi.in",
+    "sameAs": [
+      "https://github.com/harshmodi232",
+      "https://www.linkedin.com/in/harsh-modi232/"
+    ],
+    "jobTitle": "Full Stack Developer, Data Analyst, Software Developer",
+    "description": "Harsh Modi is a dedicated full stack developer, data analyst, and software developer with expertise in modern web technologies and data analysis."
+  }
+  </script>
+  
   <!-- Fonts for a futuristic vibe -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  
   <style>
     /* Base Styles with Cyber/Hologram Theme */
     body {
@@ -68,8 +106,8 @@
       left: 0;
       width: 100%;
       height: 100%;
-      padding: 0 20px; /* Added horizontal padding */
-      text-align: center; /* Centered content horizontally */
+      padding: 0 20px;
+      text-align: center;
       background: linear-gradient(135deg, #0a0f0f, #1a1a1a);
       z-index: 9999;
       display: flex;
@@ -181,7 +219,6 @@
       font-weight: 600;
       transition: color 0.3s ease, border-bottom 0.3s ease;
     }
-    /* Header Hover Override */
     header nav ul li a:hover {
       color: #00ffff;
       border-bottom: 2px solid #00ffff;
@@ -369,7 +406,6 @@
       text-align: center;
       white-space: nowrap;
     }
-    /* Mobile adjustments to center the resume button */
     @media screen and (max-width: 768px) {
       .resume-btn {
         display: block;
@@ -413,6 +449,7 @@
   <!-- Back-to-Top Button -->
   <div id="backToTop" title="Back to Top">
     <svg viewBox="0 0 24 24">
+      <title>Back to Top</title>
       <path d="M12 4l-8 8h6v8h4v-8h6z"/>
     </svg>
   </div>
@@ -467,7 +504,6 @@
   <section id="about">
     <h2>About Me</h2>
     <p>Hi, I’m Harsh Modi, a dedicated software engineer specializing in full-stack web development and data analysis. My technical skill set includes modern frameworks like React.js and Node.js, robust database management with MySQL and MongoDB, and a strong foundation in Data Structures and Algorithms (DSA). Passionate about delivering efficient solutions, I’m constantly learning and evolving my technical expertise.</p>
-    <!-- Resume Download Button -->
     <a href="Harsh Modi Updated.pdf" download id="resume-btn" class="resume-btn">Download Resume</a>
   </section>
   
@@ -492,7 +528,6 @@
       <p><strong>2021 - 2025</strong></p>
       <p>Bachelor of Technology (IT) - 7.1 CGPA</p>
     </div>
-    <!-- Certifications -->
     <h3>Certifications</h3>
     <ul>
       <li>AWS Academy Cloud Foundations</li>
@@ -538,16 +573,19 @@
     <div class="social-icons">
       <a href="mailto:harshmodi1686@gmail.com" target="_blank" title="Email">
         <svg viewBox="0 0 24 24" fill="currentColor">
+          <title>Email</title>
           <path d="M20 4H4C2.9 4 2 4.9 2 6v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
         </svg>
       </a>
       <a href="https://github.com/harshmodi232" target="_blank" title="GitHub">
         <svg viewBox="0 0 24 24" fill="currentColor">
+          <title>GitHub</title>
           <path d="M12 0.297C5.373 0.297 0 5.67 0 12.297c0 5.297 3.438 9.797 8.205 11.387.6.111.82-.261.82-.577 0-.285-.011-1.04-.016-2.04-3.338.727-4.042-1.416-4.042-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.84 1.237 1.84 1.237 1.07 1.833 2.809 1.304 3.495.997.108-.775.42-1.304.763-1.604-2.665-.303-5.467-1.332-5.467-5.93 0-1.312.469-2.382 1.236-3.222-.124-.303-.536-1.524.117-3.176 0 0 1.008-.322 3.3 1.23a11.51 11.51 0 013.003-.404c1.02.005 2.045.138 3.003.404 2.29-1.552 3.297-1.23 3.297-1.23.656 1.653.244 2.874.12 3.176.77.84 1.234 1.91 1.234 3.222 0 4.609-2.807 5.624-5.48 5.921.432.372.816 1.104.816 2.222 0 1.604-.015 2.896-.015 3.286 0 .319.216.694.825.576C20.565 22.09 24 17.59 24 12.297 24 5.67 18.627.297 12 .297z"/>
         </svg>
       </a>
       <a href="https://www.linkedin.com/in/harsh-modi232/" target="_blank" title="LinkedIn">
         <svg viewBox="0 0 24 24" fill="currentColor">
+          <title>LinkedIn</title>
           <path d="M20.447 20.452h-3.554v-5.569c0-1.327-.027-3.037-1.853-3.037-1.854 0-2.137 1.445-2.137 2.938v5.668H9.35V9h3.414v1.561h.049c.476-.9 1.635-1.853 3.367-1.853 3.599 0 4.267 2.368 4.267 5.455v6.289zM5.337 7.433a2.065 2.065 0 110-4.129 2.065 2.065 0 010 4.129zm1.777 13.019H3.56V9h3.554v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.205 24 24 23.227 24 22.271V1.729C24 .774 23.205 0 22.225 0z"/>
         </svg>
       </a>
@@ -559,18 +597,21 @@
     <div class="footer-links">
       <a href="mailto:harshmodi1686@gmail.com" title="Email">
         <svg viewBox="0 0 24 24" fill="currentColor">
+          <title>Email</title>
           <path d="M20 4H4C2.9 4 2 4.9 2 6v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
         </svg>
         Email
       </a>
       <a href="https://github.com/harshmodi232" target="_blank" title="GitHub">
         <svg viewBox="0 0 24 24" fill="currentColor">
+          <title>GitHub</title>
           <path d="M12 0.297C5.373 0.297 0 5.67 0 12.297c0 5.297 3.438 9.797 8.205 11.387.6.111.82-.261.82-.577 0-.285-.011-1.04-.016-2.04-3.338.727-4.042-1.416-4.042-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.84 1.237 1.84 1.237 1.07 1.833 2.809 1.304 3.495.997.108-.775.42-1.304.763-1.604-2.665-.303-5.467-1.332-5.467-5.93 0-1.312.469-2.382 1.236-3.222-.124-.303-.536-1.524.117-3.176 0 0 1.008-.322 3.3 1.23a11.51 11.51 0 013.003-.404c1.02.005 2.045.138 3.003.404 2.29-1.552 3.297-1.23 3.297-1.23.656 1.653.244 2.874.12 3.176.77.84 1.234 1.91 1.234 3.222 0 4.609-2.807 5.624-5.48 5.921.432.372.816 1.104.816 2.222 0 1.604-.015 2.896-.015 3.286 0 .319.216.694.825.576C20.565 22.09 24 17.59 24 12.297 24 5.67 18.627.297 12 .297z"/>
         </svg>
         GitHub
       </a>
       <a href="https://www.linkedin.com/in/harsh-modi232/" target="_blank" title="LinkedIn">
         <svg viewBox="0 0 24 24" fill="currentColor">
+          <title>LinkedIn</title>
           <path d="M20.447 20.452h-3.554v-5.569c0-1.327-.027-3.037-1.853-3.037-1.854 0-2.137 1.445-2.137 2.938v5.668H9.35V9h3.414v1.561h.049c.476-.9 1.635-1.853 3.367-1.853 3.599 0 4.267 2.368 4.267 5.455v6.289zM5.337 7.433a2.065 2.065 0 110-4.129 2.065 2.065 0 010 4.129zm1.777 13.019H3.56V9h3.554v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.205 24 24 23.227 24 22.271V1.729C24 .774 23.205 0 22.225 0z"/>
         </svg>
         LinkedIn
@@ -588,8 +629,8 @@
       document.getElementById("progressBar").style.width = scrolled + "%";
     }
     window.addEventListener("scroll", updateScrollProgress);
-    updateScrollProgress(); // initialize on page load
-
+    updateScrollProgress();
+    
     /* ---------------------- Back-to-Top Button ---------------------- */
     const backToTop = document.getElementById("backToTop");
     window.addEventListener("scroll", function() {
@@ -648,13 +689,12 @@
       });
     });
     
-    /* ---------------------- Scroll-Triggered Animations (Only on scroll down) ---------------------- */
+    /* ---------------------- Scroll-Triggered Animations ---------------------- */
     const sections = document.querySelectorAll("section");
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add("in-view");
-          // Unobserve so that once a section comes into view, its animation remains
           observer.unobserve(entry.target);
         }
       });
