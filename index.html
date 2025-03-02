@@ -6,7 +6,7 @@
   <title>Harsh Modi Portfolio</title>
   
   <!-- SEO Meta Tags -->
-  <meta name="description" content=" Harsh Modi Portfolio - Full Stack Developer, Data Analyst, and Software Developer. Showcasing projects, skills, and experience.">
+  <meta name="description" content="Harsh Modi Portfolio - Full Stack Developer, Data Analyst, and Software Developer. Showcasing projects, skills, and experience.">
   <meta name="keywords" content="harsh modi,Harsh Modi, Portfolio, Full Stack Developer, Data Analyst, Software Developer, web development, projects, skills">
   <meta name="author" content="Harsh Modi">
   <meta name="robots" content="index, follow">
@@ -18,13 +18,13 @@
   <meta property="og:description" content="Harsh Modi Portfolio - Full Stack Developer, Data Analyst, and Software Developer. Showcasing projects, skills, and experience.">
   <meta property="og:url" content="https://harshmodi.in/">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="https://harshmodi.in/og-image.jpg"> <!-- Replace with your image URL -->
+  <meta property="og:image" content="https://harshmodi.in/og-image.jpg">
   
   <!-- Twitter Card Meta Tags -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Harsh Modi Portfolio">
   <meta name="twitter:description" content="Harsh Modi Portfolio - Full Stack Developer, Data Analyst, and Software Developer. Showcasing projects, skills, and experience.">
-  <meta name="twitter:image" content="https://harshmodi.in/twitter-image.jpg"> <!-- Replace with your image URL -->
+  <meta name="twitter:image" content="https://harshmodi.in/twitter-image.jpg">
   
   <!-- Structured Data (JSON-LD) -->
   <script type="application/ld+json">
@@ -348,24 +348,60 @@
       color: #00ffff;
       margin-bottom: 10px;
     }
-    /* Contact Section – Social Icons Bigger */
-    .social-icons {
-      display: flex;
-      gap: 15px;
-      margin-top: 10px;
+    /* Enhanced Contact Me Section */
+    #contact {
+      text-align: center;
     }
-    .social-icons a {
-      color: #00ffff;
-      transition: transform 0.3s ease, color 0.3s ease;
-      display: inline-flex;
-      align-items: center;
+    #contact p {
+      margin-bottom: 1rem;
     }
-    .social-icons a:hover {
-      transform: scale(1.1);
-      color: #ff00ff;
+    #contact form {
+      background: rgba(0, 0, 0, 0.5);
+      border: 1px solid #00ffff;
+      border-radius: 10px;
+      padding: 2rem;
+      max-width: 500px;
+      margin: 2rem auto;
+      box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
+      text-align: left;
     }
-    .social-icons svg { width: 32px; height: 32px; }
-    /* Footer – Enhanced with Social Links */
+    #contact form div {
+      margin-bottom: 1rem;
+    }
+    #contact label {
+      display: block;
+      margin-bottom: 0.3rem;
+      font-weight: 600;
+    }
+    #contact input, 
+    #contact textarea {
+      width: 100%;
+      padding: 1rem;
+      border: 1px solid #00ffff;
+      border-radius: 4px;
+      background: #1a1a1a;
+      color: #e0e0e0;
+      font-size: 1rem;
+    }
+    #contact textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+    #contact button {
+      background: linear-gradient(45deg, #00ffff, #ff00ff);
+      color: #0a0f0f;
+      border: none;
+      padding: 0.8rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      width: 100%;
+    }
+    #contact button:hover {
+      background: linear-gradient(45deg, #ff00ff, #00ffff);
+    }
+    /* Footer – Enhanced with Updated Message */
     footer {
       background: #0a0f0f;
       padding: 1.5rem;
@@ -476,8 +512,8 @@
         <li><a href="#home">Home</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#skills">Skills</a></li>
-        <li><a href="#education">Education</a></li>
         <li><a href="#projects">Projects</a></li>
+        <li><a href="#services">our services</a></li>
         <li><a href="#contact">Contact</a></li>
         <li><a href="chatbot.html">More</a></li>
       </ul>
@@ -521,24 +557,6 @@
     </ul>
   </section>
   
-  <!-- Education Section -->
-  <section id="education">
-    <h2>Education</h2>
-    <div class="education-item">
-      <h3>Institute of Technology and Management, Gwalior, India</h3>
-      <p><strong>2021 - 2025</strong></p>
-      <p>Bachelor of Technology (IT) - 7.1 CGPA</p>
-    </div>
-    <h3>Certifications</h3>
-    <ul>
-      <li>AWS Academy Cloud Foundations</li>
-      <li>Salesforce Certified (Administrator)</li>
-      <li>Alteryx Designer Core</li>
-      <li>Alteryx Designer Core Micro-Credential</li>
-      <li>Alteryx Foundational Micro-Credential</li>
-    </ul>
-  </section>
-  
   <!-- Projects Section -->
   <section id="projects">
     <h2>Projects</h2>
@@ -568,32 +586,41 @@
     </div>
   </section>
   
-  <!-- Contact Section -->
-  <section id="contact">
-    <h2>Contact</h2>
-    <div class="social-icons">
-      <a href="mailto:harshmodi1686@gmail.com" target="_blank" title="Email">
-        <svg viewBox="0 0 24 24" fill="currentColor">
-          <title>Email</title>
-          <path d="M20 4H4C2.9 4 2 4.9 2 6v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-        </svg>
-      </a>
-      <a href="https://github.com/harshmodi232" target="_blank" title="GitHub">
-        <svg viewBox="0 0 24 24" fill="currentColor">
-          <title>GitHub</title>
-          <path d="M12 0.297C5.373 0.297 0 5.67 0 12.297c0 5.297 3.438 9.797 8.205 11.387.6.111.82-.261.82-.577 0-.285-.011-1.04-.016-2.04-3.338.727-4.042-1.416-4.042-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.84 1.237 1.84 1.237 1.07 1.833 2.809 1.304 3.495.997.108-.775.42-1.304.763-1.604-2.665-.303-5.467-1.332-5.467-5.93 0-1.312.469-2.382 1.236-3.222-.124-.303-.536-1.524.117-3.176 0 0 1.008-.322 3.3 1.23a11.51 11.51 0 013.003-.404c1.02.005 2.045.138 3.003.404 2.29-1.552 3.297-1.23 3.297-1.23.656 1.653.244 2.874.12 3.176.77.84 1.234 1.91 1.234 3.222 0 4.609-2.807 5.624-5.48 5.921.432.372.816 1.104.816 2.222 0 1.604-.015 2.896-.015 3.286 0 .319.216.694.825.576C20.565 22.09 24 17.59 24 12.297 24 5.67 18.627.297 12 .297z"/>
-        </svg>
-      </a>
-      <a href="https://www.linkedin.com/in/harsh-modi232/" target="_blank" title="LinkedIn">
-        <svg viewBox="0 0 24 24" fill="currentColor">
-          <title>LinkedIn</title>
-          <path d="M20.447 20.452h-3.554v-5.569c0-1.327-.027-3.037-1.853-3.037-1.854 0-2.137 1.445-2.137 2.938v5.668H9.35V9h3.414v1.561h.049c.476-.9 1.635-1.853 3.367-1.853 3.599 0 4.267 2.368 4.267 5.455v6.289zM5.337 7.433a2.065 2.065 0 110-4.129 2.065 2.065 0 010 4.129zm1.777 13.019H3.56V9h3.554v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.205 24 24 23.227 24 22.271V1.729C24 .774 23.205 0 22.225 0z"/>
-        </svg>
-      </a>
-    </div>
+  <!-- our services Section -->
+  <section id="services">
+    <h2>our services</h2>
+    <p>We offer comprehensive web development solutions tailored to meet your business needs. Our services include:</p>
+    <ul>
+      <li><strong>Custom Website Development:</strong> Building responsive, user-friendly, and scalable websites using modern technologies.</li>
+      <li><strong>E-Commerce Solutions:</strong> Creating secure and efficient online stores to boost your sales.</li>
+      <li><strong>Content Management Systems:</strong> Implementing flexible CMS platforms for easy content updates and management.</li>
+      <li><strong>UI/UX Design:</strong> Designing intuitive and engaging user interfaces that enhance user experience.</li>
+      <li><strong>Website Maintenance & Support:</strong> Providing ongoing support and maintenance to ensure your website stays up-to-date and secure.</li>
+    </ul>
   </section>
   
-  <!-- Footer with Enhanced Social Links -->
+  <!-- Updated Contact Me Section with Enhanced Form -->
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <p>I Want To Hear From You</p>
+    <form action="mailto:harshmodi1686@gmail.com" method="post" enctype="text/plain">
+      <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required placeholder="Your Name">
+      </div>
+      <div>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required placeholder="Your Email">
+      </div>
+      <div>
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" required placeholder="Your Message"></textarea>
+      </div>
+      <button type="submit">Submit</button>
+    </form>
+  </section>
+  
+  <!-- Footer -->
   <footer>
     <div class="footer-links">
       <a href="mailto:harshmodi1686@gmail.com" title="Email">
@@ -618,7 +645,7 @@
         LinkedIn
       </a>
     </div>
-    <p>&copy; 2025 Harsh Modi</p>
+    <p>Made with <span style="color: #ff00ff;">&#10084;</span> by Harsh Modi &copy; 2025</p>
   </footer>
   
   <script>
