@@ -1,27 +1,14 @@
 {
     "version": 2,
-    "builds": [
-        {
-            "src": "frontend/**/*.html",
-            "use": "@vercel/static"
-        },
-        {
-            "src": "public/**/*",
-            "use": "@vercel/static"
-        }
-    ],
     "routes": [
       {
-        "src": "/(.*)",
+        "src": "^/(ads\\.txt|sitemap\\.xml)$",
+        "dest": "/public/$1"
+      },
+      {
+        "src": "^(?!/ads\\.txt|/sitemap\\.xml)(.*)$",
         "dest": "frontend/$1"
-      },
-      {
-        "src": "/ads.txt",
-        "dest": "/public/ads.txt"
-      },
-      {
-        "src": "/sitemap.xml",
-        "dest": "/public/sitemap.xml"
       }
     ]
   }
+  
