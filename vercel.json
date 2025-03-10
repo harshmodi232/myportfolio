@@ -16,7 +16,7 @@
         "dest": "frontend/$1"
       },
       {
-        "src": "^/(robots\\.txt|ads\\.txt|sitemap\\.xml)$",
+        "src": "^/(ads\\.txt|sitemap\\.xml)$",
         "dest": "/public/$1"
       }
     ]
