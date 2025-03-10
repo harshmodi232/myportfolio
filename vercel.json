@@ -24,8 +24,8 @@
         "dest": "/public/sitemap.xml"
       },
       {
-        "src": "/Ads.txt",
-        "dest": "/public/Ads.txt"
+        "src": "/ads.txt",
+        "dest": "/public/ads.txt"
       },
       {
         "src": "/api/(.*)",
