@@ -389,6 +389,17 @@
       background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.7) 90%);
     }
 
+    /* Add this to your CSS */
+.card {
+  opacity: 1 !important; /* Override animation opacity */
+  transform: none !important; /* Reset transforms */
+}
+
+.blog-grid {
+  display: grid !important; /* Force grid display */
+  visibility: visible !important;
+}
+
     /* Floating Animation */
     @keyframes float {
       0%, 100% { transform: translateY(0); }
