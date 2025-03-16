@@ -205,25 +205,45 @@
 
     /* Responsive Design */
     @media (max-width: 768px) {
-      .blog-grid {
-        grid-template-columns: 1fr;
-      }
-      
-      .card {
-    width: calc(100% - 40px);
+  .blog-grid {
+    grid-template-columns: 1fr;
+    padding: 0 20px; /* Add matching side padding */
+  }
+
+  .card {
+    width: calc(100% - 40px); /* 20px padding on both sides */
     margin: 0 auto 20px;
-  
-      }
-      .search-input {
-    width: calc(100% - 30px); /* Account for padding */
+  }
+
+  .search-container {
+    padding: 0 20px; /* Match card padding */
+  }
+
+  .search-wrapper {
+    max-width: 100% !important;
+    margin: 0 auto; /* Center align like cards */
+  }
+
+  .search-input {
+    width: 100%;
     max-width: 100%;
     font-size: 0.95em;
     padding: 14px 20px;
+    box-sizing: border-box; /* Include padding in width calculation */
   }
-  .search-wrapper {
-    max-width: 100% !important;
-    padding: 0 15px;
+
+  .search-icon {
+    right: 15px;
+    width: 20px;
+    height: 20px;
   }
+
+  .blog-heading {
+    font-size: 2em;
+    margin: 30px 15px;
+    line-height: 1.3;
+  }
+
 
 
     .search-icon {
