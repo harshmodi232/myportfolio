@@ -1,27 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Meta tags remain the same -->
+  <!-- Meta tags updated for Harsh Modi -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Explore the latest blogs by Jay Tiwari on hackathons, coding competitions, and community events. Dive into the world of innovation and creativity.">
-  <meta name="author" content="Jay Tiwari">
-  <meta name="keywords" content="Hackathon, Coding, Community, AI, Innovation, Blog, Jay Tiwari, CodeDex, Blurockionic">
+  <meta name="description" content="Explore the latest blogs by Harsh Modi on hackathons, coding competitions, and community events. Dive into the world of innovation and creativity.">
+  <meta name="author" content="Harsh Modi">
+  <meta name="keywords" content="Hackathon, Coding, Community, AI, Innovation, Blog, Harsh Modi, CodeDex, Blurockionic">
   <meta name="robots" content="index, follow">
-  <meta property="og:title" content="Blog | jaytiwari.in">
-  <meta property="og:description" content="Explore the latest blogs by Jay Tiwari on hackathons, coding competitions, and community events. Dive into the world of innovation and creativity.">
-  <meta property="og:image" content="https://jaytiwari.in/public/icons/blog-preview.jpg">
-  <meta property="og:url" content="https://jaytiwari.in/blog.html">
+  <meta property="og:title" content="Blog | harshmodi.in">
+  <meta property="og:description" content="Explore the latest blogs by Harsh Modi on hackathons, coding competitions, and community events. Dive into the world of innovation and creativity.">
+  <meta property="og:image" content="https://harshmodi.in/public/icons/blog-preview.jpg">
+  <meta property="og:url" content="https://harshmodi.in/blog.html">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Blog | jaytiwari.in">
-  <meta name="twitter:description" content="Explore the latest blogs by Jay Tiwari on hackathons, coding competitions, and community events. Dive into the world of innovation and creativity.">
-  <meta name="twitter:image" content="https://jaytiwari.in/public/icons/blog-preview.jpg">
-  <link rel="icon" href="/public/favicons/jay.png" type="image/x-icon">
-  <link rel="canonical" href="https://jaytiwari.in/blog.html">
+  <meta name="twitter:title" content="Blog | harshmodi.in">
+  <meta name="twitter:description" content="Explore the latest blogs by Harsh Modi on hackathons, coding competitions, and community events. Dive into the world of innovation and creativity.">
+  <meta name="twitter:image" content="https://harshmodi.in/public/icons/blog-preview.jpg">
+  <link rel="icon" href="/public/favicons/harsh.png" type="image/x-icon">
+  <link rel="canonical" href="https://harshmodi.in/blog.html">
   <meta name="google-adsense-account" content="ca-pub-8037686974341414">
-  <title>Blog | jaytiwari.in</title>
+  <title>Blog | harshmodi.in</title>
   <style>
-    /* Modern Gradient Background */
+    /* Base Styles */
     body {
       background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
       color: #fff;
@@ -29,6 +29,50 @@
       margin: 0;
       padding: 40px 20px;
       min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Scroll Progress Bar at Top */
+    .scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #00b4d8 0%, #0077b6 100%);
+      z-index: 1000;
+      transition: width 0.3s ease;
+    }
+
+    /* Back to Top Button */
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: linear-gradient(45deg, #00b4d8, #0077b6);
+      color: white;
+      padding: 12px 16px;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+      z-index: 1000;
+    }
+    .back-to-top.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* Particle Background */
+    .particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -2;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
     }
 
     /* Grid Layout */
@@ -37,10 +81,10 @@
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
       gap: 30px;
       max-width: 1200px;
-      margin: 0 auto;
+      margin: 30px auto;
     }
 
-    /* Modern Card Design */
+    /* Card Styles */
     .card {
       background: rgba(255, 255, 255, 0.05);
       border-radius: 20px;
@@ -49,25 +93,61 @@
       overflow: hidden;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       position: relative;
+      perspective: 1000px;
+      transform-style: preserve-3d;
+      animation: cardEntrance 0.6s ease forwards;
     }
-
     .card:hover {
-      transform: translateY(-10px);
+      transform: translateY(-10px) rotateX(5deg) rotateY(-5deg);
       box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
     }
+    @keyframes cardEntrance {
+      from {
+        opacity: 0;
+        transform: translateY(50px) rotate(3deg);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) rotate(0);
+      }
+    }
+    /* Gradient Shine on Card */
+    .card::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.03) 50%, rgba(255,255,255,0) 100%);
+      animation: shine 3s infinite;
+    }
+    @keyframes shine {
+      100% { left: 200%; }
+    }
 
-    /* Card Header */
+    /* Card Header & Tags */
     .card-header {
       padding: 20px;
       border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
-
+    .card-title {
+      font-size: 1.5em;
+      margin: 0 0 15px 0;
+      line-height: 1.3;
+      transition: color 0.3s ease;
+    }
+    .card:hover .card-title {
+      background: linear-gradient(45deg, #00b4d8, #0077b6);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
     .card-tags {
       display: flex;
       gap: 8px;
       margin-top: 12px;
     }
-
     .tag {
       background: linear-gradient(45deg, #6a11cb 0%, #2575fc 100%);
       padding: 6px 12px;
@@ -85,7 +165,6 @@
       padding: 20px;
       background: rgba(0, 0, 0, 0.1);
     }
-
     .author-photo {
       width: 50px;
       height: 50px;
@@ -93,38 +172,31 @@
       margin-right: 15px;
       border: 2px solid #fff;
     }
-
     .author-details {
       line-height: 1.4;
     }
-
     .post-date {
       color: rgba(255, 255, 255, 0.7);
       font-size: 0.9em;
     }
 
     /* Card Content */
+    .card-image-container {
+      overflow: hidden;
+      position: relative;
+    }
     .card-image {
       width: 100%;
       height: 200px;
       object-fit: cover;
-      transition: transform 0.3s ease;
+      transition: transform 0.8s cubic-bezier(0.25, 0.45, 0.45, 0.95);
     }
-
     .card:hover .card-image {
-      transform: scale(1.03);
+      transform: scale(1.1) rotate(1deg);
     }
-
     .card-content {
       padding: 20px;
     }
-
-    .card-title {
-      font-size: 1.5em;
-      margin: 0 0 15px 0;
-      line-height: 1.3;
-    }
-
     .card-excerpt {
       color: rgba(255, 255, 255, 0.8);
       line-height: 1.6;
@@ -145,24 +217,21 @@
       position: relative;
       overflow: hidden;
     }
-
     .read-more::after {
       content: '→';
       margin-left: 8px;
       opacity: 0;
       transition: opacity 0.2s ease;
     }
-
     .read-more:hover {
       transform: translateY(-2px);
       box-shadow: 0 5px 15px rgba(0, 180, 216, 0.3);
     }
-
     .read-more:hover::after {
       opacity: 1;
     }
 
-    /* Interactions */
+    /* Like Button with Ripple Effect */
     .likes {
       display: flex;
       align-items: center;
@@ -170,110 +239,70 @@
       padding: 15px 20px;
       border-top: 1px solid rgba(255, 255, 255, 0.1);
     }
-
     .like-button {
       cursor: pointer;
-      transition: transform 0.2s ease;
+      transition: transform 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      font-size: 1.2em;
     }
-
     .like-button:hover {
       transform: scale(1.1);
     }
+    .like-button.active {
+      transform: scale(1.2);
+      color: #ff4081;
+    }
+    .ripple {
+      position: absolute;
+      border-radius: 50%;
+      transform: scale(0);
+      animation: ripple-animation 0.6s linear;
+      background: rgba(255, 255, 255, 0.5);
+      pointer-events: none;
+    }
+    @keyframes ripple-animation {
+      to {
+        transform: scale(4);
+        opacity: 0;
+      }
+    }
 
+    /* Blog Heading */
     .blog-heading {
-    text-align: center;
-    font-size: 2.5em;
-    margin: 40px 0;
-    background: linear-gradient(45deg, #00b4d8, #0077b6);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    animation: fadeInUp 1s ease-out;
-    text-shadow: 0 2px 10px rgba(0, 180, 216, 0.3);
-  }
-
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(30px);
+      text-align: center;
+      font-size: 2.5em;
+      margin: 40px 0;
+      background: linear-gradient(45deg, #00b4d8, #0077b6);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: fadeInUp 1s ease-out;
+      text-shadow: 0 2px 10px rgba(0, 180, 216, 0.3);
     }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-    /* Responsive Design */
-    @media (max-width: 768px) {
-  .blog-grid {
-    grid-template-columns: 1fr;
-    padding: 0 20px; /* Add matching side padding */
-  }
-
-  .card {
-    width: calc(100% - 40px); /* 20px padding on both sides */
-    margin: 0 auto 20px;
-  }
-
-  .search-container {
-    padding: 0 20px; /* Match card padding */
-  }
-
-  .search-wrapper {
-    max-width: 100% !important;
-    margin: 0 auto; /* Center align like cards */
-  }
-
-  .search-input {
-    width: 100%;
-    max-width: 100%;
-    font-size: 0.95em;
-    padding: 14px 20px;
-    box-sizing: border-box; /* Include padding in width calculation */
-  }
-
-  .search-icon {
-    right: 15px;
-    width: 20px;
-    height: 20px;
-  }
-
-  .blog-heading {
-    font-size: 2em;
-    margin: 30px 15px;
-    line-height: 1.3;
-  }
-
-
-
-    .search-icon {
-      right: 15px;
-      width: 20px;
-      height: 20px;
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
-    .blog-heading {
-      font-size: 2em;
-      margin: 30px 15px;
-      line-height: 1.3;
-    }
-  }
-    
-   
-    /* Add search bar styles */
+    /* Search Bar Styles */
     .search-container {
       max-width: 1200px;
-      margin: 0 auto 40px; /* Centers the element horizontally */
+      margin: 0 auto 40px;
       padding: 0 20px;
-      display: block; 
+      display: block;
     }
-
     .search-wrapper {
       position: relative;
       max-width: 600px;
       margin: 0 auto;
     }
-
     .search-input {
       width: 100%;
       padding: 16px 24px;
@@ -285,197 +314,60 @@
       backdrop-filter: blur(10px);
       transition: all 0.3s ease;
     }
-
     .search-input:focus {
       outline: none;
       border-color: #00b4d8;
       box-shadow: 0 0 15px rgba(0, 180, 216, 0.3);
     }
-
     .search-input::placeholder {
       color: rgba(255, 255, 255, 0.6);
     }
-
     .search-icon {
       position: absolute;
       right: 20px;
       top: 50%;
       transform: translateY(-50%);
       color: rgba(255, 255, 255, 0.6);
+      width: 24px;
+      height: 24px;
     }
 
-    /* Add to existing styles */
-    .blog-grid {
-      margin-top: 30px;
-    }
-
-    .hidden {
-      display: none;
-    }
-
-    /* Animated Background Elements */
-    .card::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 50%;
-      height: 100%;
-      background: linear-gradient(
-        to right,
-        rgba(255, 255, 255, 0) 0%,
-        rgba(255, 255, 255, 0.03) 50%,
-        rgba(255, 255, 255, 0) 100%
-      );
-      animation: shine 3s infinite;
-    }
-
-     /* Particle Background */
-     .particles {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-    }
-
-    /* Scroll Progress Indicator */
-    .scroll-progress {
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 3px;
-      background: linear-gradient(90deg, #00b4d8 0%, #0077b6 100%);
-      z-index: 999;
-      transition: width 0.3s ease;
-    }
-
-    /* Card Entrance Animation */
-    @keyframes cardEntrance {
-      from {
-        opacity: 0;
-        transform: translateY(50px) rotate(3deg);
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .blog-grid {
+        grid-template-columns: 1fr;
+        padding: 0 20px;
       }
-      to {
-        opacity: 1;
-        transform: translateY(0) rotate(0);
+      .card {
+        width: calc(100% - 40px);
+        margin: 0 auto 20px;
       }
-    }
-
-    .card {
-      animation: cardEntrance 0.6s ease forwards;
-      opacity: 0;
-    }
-
-    /* Hover Effects */
-    .card:hover .card-title {
-      background: linear-gradient(45deg, #00b4d8, #0077b6);
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-      transition: all 0.3s ease;
-    }
-
-    /* 3D Effect on Hover */
-    .card {
-      perspective: 1000px;
-      transform-style: preserve-3d;
-    }
-
-    .card:hover {
-      transform: translateY(-10px) rotateX(5deg) rotateY(-5deg);
-    }
-
-    /* Dynamic Grid Layout */
-    .blog-grid {
-      grid-auto-rows: 1fr;
-    }
-
-    /* Image Hover Zoom */
-    .card-image-container {
-      overflow: hidden;
-      position: relative;
-    }
-
-    .card-image {
-      transition: transform 0.8s cubic-bezier(0.25, 0.45, 0.45, 0.95);
-    }
-
-    .card:hover .card-image {
-      transform: scale(1.1) rotate(1deg);
-    }
-
-    /* Gradient Overlay */
-    .card-image-container::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.7) 90%);
-    }
-
-    /* Add this to your CSS */
-.card {
-  opacity: 1 !important; /* Override animation opacity */
-  transform: none !important; /* Reset transforms */
-}
-
-.blog-grid {
-  display: grid !important; /* Force grid display */
-  visibility: visible !important;
-}
-
-    /* Floating Animation */
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-20px); }
-    }
-
-    .card:nth-child(odd) {
-      animation: float 6s ease-in-out infinite;
-    }
-
-    .card:nth-child(even) {
-      animation: float 6s ease-in-out infinite 3s;
-    }
-
-    /* Like Button Animation */
-    .like-button {
-      transition: all 0.3s ease;
-      cursor: pointer;
-    }
-
-    .like-button.active {
-      transform: scale(1.2);
-      color: #ff4081;
-    }
-
-    /* Add these media queries */
-    @media (prefers-reduced-motion: reduce) {
-      .card, .card-image, .like-button {
-        animation: none !important;
-        transition: none !important;
+      .search-input {
+        font-size: 0.95em;
+        padding: 14px 20px;
       }
-    }
-
-    @keyframes shine {
-      100% {
-        left: 200%;
+      .blog-heading {
+        font-size: 2em;
+        margin: 30px 15px;
+        line-height: 1.3;
+      }
+      .search-icon {
+        right: 15px;
+        width: 20px;
+        height: 20px;
       }
     }
   </style>
-  <!-- Add Inter Font -->
+  <!-- Inter Font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+  <!-- Progress bar, particle background, and heading -->
   <div class="scroll-progress" id="scrollProgress"></div>
   <div class="particles" id="particles"></div>
-  <h1 class="blog-heading">Blog by JayTiwari</h1>
+  <h1 class="blog-heading">Blog by Harsh Modi</h1>
 
+  <!-- Search Bar -->
   <div class="search-container">
     <div class="search-wrapper">
       <input type="text" 
@@ -483,8 +375,6 @@
              placeholder="Search blogs..."
              id="searchInput">
       <svg class="search-icon" 
-           width="24" 
-           height="24" 
            viewBox="0 0 24 24" 
            fill="none" 
            stroke="currentColor" 
@@ -495,6 +385,7 @@
     </div>
   </div>
 
+  <!-- Blog Cards -->
   <div class="blog-grid">
     <!-- First Blog Card -->
     <article class="card">
@@ -506,29 +397,25 @@
           <span class="tag">Community</span>
         </div>
       </div>
-      
       <div class="author-info">
-        <img src="/public/icons/jayy.jpg" alt="Jay" class="author-photo">
+        <img src="/public/icons/harsh.jpg" alt="Harsh Modi" class="author-photo">
         <div class="author-details">
-          <div class="author-name">Jay Tiwari</div>
+          <div class="author-name">Harsh Modi</div>
           <div class="post-date">Dec 21, 2024</div>
         </div>
       </div>
-
       <div class="card-content">
         <p class="card-excerpt">
           NOSU AI Hackathon concluded the season with groundbreaking AI solutions and festive excitement – where innovation and celebration collided! 💖
         </p>
         <a href="#" class="read-more">Read More</a>
       </div>
-
       <div class="likes">
         <span class="like-button">❤️</span>
         <span>1.2k likes</span>
       </div>
     </article>
 
-    <!-- Repeat similar structure for other cards -->
     <!-- Second Blog Card -->
     <article class="card">
       <img src="/public/icons/miniholiday.gif" alt="Mini Hackathon" class="card-image">
@@ -539,22 +426,19 @@
           <span class="tag">Community</span>
         </div>
       </div>
-      
       <div class="author-info">
-        <img src="/public/icons/jayy.jpg" alt="Jay" class="author-photo">
+        <img src="/public/icons/harsh.jpg" alt="Harsh Modi" class="author-photo">
         <div class="author-details">
-          <div class="author-name">Jay Tiwari</div>
+          <div class="author-name">Harsh Modi</div>
           <div class="post-date">Dec 21, 2024</div>
         </div>
       </div>
-
       <div class="card-content">
         <p class="card-excerpt">
-          "CodeDex Mini Holiday Hackathons wrapped up the season with innovation and cheer – where coding brilliance met the festive spirit!"
+          CodeDex Mini Holiday Hackathons wrapped up the season with innovation and cheer – where coding brilliance met the festive spirit!
         </p>
         <a href="codedexarticle.html" class="read-more">Read More</a>
       </div>
-
       <div class="likes">
         <span class="like-button">❤️</span>
         <span>890 likes</span>
@@ -571,40 +455,40 @@
           <span class="tag">Innovation</span>
         </div>
       </div>
-      
       <div class="author-info">
-        <img src="/public/icons/jayy.jpg" alt="Jay" class="author-photo">
+        <img src="/public/icons/harsh.jpg" alt="Harsh Modi" class="author-photo">
         <div class="author-details">
-          <div class="author-name">Jay Tiwari</div>
+          <div class="author-name">Harsh Modi</div>
           <div class="post-date">Nov 20, 2024</div>
         </div>
       </div>
-
       <div class="card-content">
         <p class="card-excerpt">
           Congratulations to the winners of Blurockionic's AI Hackathon! Your creativity and innovation showcased the transformative power of AI. 🏆
         </p>
         <a href="blurockionicarticle.html" class="read-more">Read More</a>
       </div>
-
       <div class="likes">
         <span class="like-button">❤️</span>
         <span>2.1k likes</span>
       </div>
     </article>
   </div>
+
+  <!-- Back to Top Button -->
+  <div class="back-to-top" id="backToTop">↑ Top</div>
+
   <script>
+    // Search functionality for blog cards
     document.addEventListener('DOMContentLoaded', () => {
       const searchInput = document.getElementById('searchInput');
       const blogCards = document.querySelectorAll('.card');
 
       function filterBlogs(searchTerm) {
         const normalizedSearch = searchTerm.toLowerCase();
-        
         blogCards.forEach(card => {
           const title = card.querySelector('.card-title').textContent.toLowerCase();
           const excerpt = card.querySelector('.card-excerpt').textContent.toLowerCase();
-          
           if (title.includes(normalizedSearch) || excerpt.includes(normalizedSearch)) {
             card.classList.remove('hidden');
           } else {
@@ -612,34 +496,59 @@
           }
         });
       }
-
       searchInput.addEventListener('input', (e) => {
         filterBlogs(e.target.value);
       });
     });
 
-    
-    // Scroll Progress Indicator
+    // Scroll Progress Indicator and Back to Top Button
     window.addEventListener('scroll', () => {
       const scrollProgress = document.getElementById('scrollProgress');
       const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
       const scrolled = (window.scrollY / windowHeight) * 100;
       scrollProgress.style.width = scrolled + '%';
+
+      // Show/hide back to top button
+      const backToTop = document.getElementById('backToTop');
+      if (window.scrollY > 200) {
+        backToTop.classList.add('show');
+      } else {
+        backToTop.classList.remove('show');
+      }
+    });
+    document.getElementById('backToTop').addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
-    // Like Button Interaction
+    // Like Button Interaction with Ripple Effect
     document.querySelectorAll('.like-button').forEach(button => {
-      button.addEventListener('click', function() {
+      button.addEventListener('click', function(e) {
+        // Create ripple element
+        const circle = document.createElement('span');
+        const diameter = Math.max(this.clientWidth, this.clientHeight);
+        const radius = diameter / 2;
+        circle.style.width = circle.style.height = `${diameter}px`;
+        circle.style.left = `${e.clientX - this.getBoundingClientRect().left - radius}px`;
+        circle.style.top = `${e.clientY - this.getBoundingClientRect().top - radius}px`;
+        circle.classList.add('ripple');
+        // Remove any existing ripple
+        const ripple = this.getElementsByClassName('ripple')[0];
+        if (ripple) {
+          ripple.remove();
+        }
+        this.appendChild(circle);
+
+        // Toggle like state and update like count
         this.classList.toggle('active');
         if (this.classList.contains('active')) {
           this.textContent = '❤️';
-          const count = this.nextElementSibling;
-          count.textContent = parseInt(count.textContent) + 1 + ' likes';
+          const countElem = this.nextElementSibling;
+          countElem.textContent = parseInt(countElem.textContent) + 1 + ' likes';
         }
       });
     });
 
-    // Intersection Observer for cards
+    // Intersection Observer for card animations (additional trigger if needed)
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -647,7 +556,6 @@
         }
       });
     }, { threshold: 0.1 });
-
     document.querySelectorAll('.card').forEach(card => {
       observer.observe(card);
     });
@@ -663,10 +571,10 @@
           height: 2px;
           background: rgba(255,255,255,0.2);
           border-radius: 50%;
+          left: ${Math.random() * 100}%;
+          top: ${Math.random() * 100}%;
+          animation: float ${3 + Math.random() * 6}s infinite;
         `;
-        particle.style.left = Math.random() * 100 + '%';
-        particle.style.top = Math.random() * 100 + '%';
-        particle.style.animation = `float ${3 + Math.random() * 6}s infinite`;
         particles.appendChild(particle);
       }
     }
