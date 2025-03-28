@@ -82,6 +82,7 @@
       gap: 30px;
       max-width: 1200px;
       margin: 30px auto;
+      padding: 0 20px;
     }
 
     /* Card Styles */
@@ -334,12 +335,15 @@
 
     /* Responsive Styles */
     @media (max-width: 768px) {
+      body {
+        padding: 20px 10px;
+      }
       .blog-grid {
         grid-template-columns: 1fr;
-        padding: 0 20px;
+        gap: 20px;
       }
       .card {
-        width: calc(100% - 40px);
+        width: 100%;
         margin: 0 auto 20px;
       }
       .search-input {
@@ -355,6 +359,33 @@
         right: 15px;
         width: 20px;
         height: 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .blog-heading {
+        font-size: 1.8em;
+        margin: 20px 10px;
+      }
+      .search-input {
+        padding: 12px 16px;
+        font-size: 0.9em;
+      }
+      .read-more {
+        padding: 10px 20px;
+        font-size: 0.9em;
+      }
+      .author-photo {
+        width: 40px;
+        height: 40px;
+      }
+      .card-image {
+        height: 180px;
+      }
+      .back-to-top {
+        padding: 10px 14px;
+        bottom: 20px;
+        right: 20px;
       }
     }
   </style>
@@ -392,10 +423,7 @@
       <img src="/public/images/earnai.jpeg" alt="Earn Using Ai" class="card-image">
       <div class="card-header">
         <h1 class="card-title">How to Earn Money Using AI: A Comprehensive Guide</h1>
-        <div class="card-tags">
-          <span class="tag">Events</span>
-          <span class="tag">Community</span>
-        </div>
+        <div class="card-tags"></div>
       </div>
       <div class="author-info">
         <img src="/public/images/hero.png" alt="Harsh Modi" class="author-photo">
@@ -418,16 +446,13 @@
 
     <!-- Second Blog Card -->
     <article class="card">
-      <img src="/public\images\ai-c.png" alt="ai-competitive" class="card-image">
+      <img src="/public/images/ai-c.png" alt="ai-competitive" class="card-image">
       <div class="card-header">
         <h1 class="card-title">AI in Competitive Exams: Can It Help You Prepare Smarter?</h1>
-        <div class="card-tags">
-          <span class="tag">Events</span>
-          <span class="tag">Community</span>
-        </div>
+        <div class="card-tags"></div>
       </div>
       <div class="author-info">
-        <img src="/public\images\hero.png" alt="Harsh Modi" class="author-photo">
+        <img src="/public/images/hero.png" alt="Harsh Modi" class="author-photo">
         <div class="author-details">
           <div class="author-name">Harsh Modi</div>
           <div class="post-date">2 March 2025</div>
@@ -447,16 +472,13 @@
 
     <!-- Third Blog Card -->
     <article class="card">
-      <img src="/public\images\ai-web.png" alt="Ai webdevelopment transformation" class="card-image">
+      <img src="/public/images/ai-web.png" alt="Ai webdevelopment transformation" class="card-image">
       <div class="card-header">
         <h1 class="card-title">How AI is Transforming Web Development</h1>
-        <div class="card-tags">
-          <span class="tag">Competition</span>
-          <span class="tag">Innovation</span>
-        </div>
+        <div class="card-tags"></div>
       </div>
       <div class="author-info">
-        <img src="/public\images\hero.png" alt="Harsh Modi" class="author-photo">
+        <img src="/public/images/hero.png" alt="Harsh Modi" class="author-photo">
         <div class="author-details">
           <div class="author-name">Harsh Modi</div>
           <div class="post-date">8 March 2025</div>
@@ -548,7 +570,7 @@
       });
     });
 
-    // Intersection Observer for card animations (additional trigger if needed)
+    // Intersection Observer for card animations
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
